@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="#0B1220"/>
+  <g filter="url(#glow)">
+    <path d="M54 178L93 78h30l-39 100H54z" fill="url(#lg)"/>
+    <path d="M103 178l27-72h28l-27 72h-28z" fill="url(#lg)" opacity="0.8"/>
+    <path d="M146 178l19-50h27l-19 50h-27z" fill="url(#lg)" opacity="0.6"/>
+  </g>
+  <text x="128" y="214" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#EEF2FF">Rohith CR</text>
+</svg>

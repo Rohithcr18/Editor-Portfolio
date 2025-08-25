@@ -1,0 +1,340 @@
+.skills-section {
+  background: linear-gradient(135deg, rgba(118, 75, 162, 0.9) 0%, rgba(102, 126, 234, 0.9) 100%);
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Unique theming per button (order-sensitive) */
+.software-list li:nth-child(1) .software-chip { /* DaVinci Resolve */
+  --accent: #0ea5e9;  /* cyan */
+  --accent2: #22d3ee; /* lighter cyan */
+  --glow: rgba(14,165,233,0.45);
+  border-radius: 14px;
+}
+.software-list li:nth-child(2) .software-chip { /* Photoshop */
+  --accent: #0a84ff;  /* blue */
+  --accent2: #4f46e5; /* indigo */
+  --glow: rgba(10,132,255,0.45);
+  border-radius: 18px 12px 12px 12px;
+}
+.software-list li:nth-child(3) .software-chip { /* Canva */
+  --accent: #00c4cc;  /* teal */
+  --accent2: #34d399; /* green */
+  --glow: rgba(0,196,204,0.45);
+  border-radius: 12px 18px 12px 12px;
+}
+.software-list li:nth-child(4) .software-chip { /* Figma */
+  --accent: #f43f5e;  /* rose */
+  --accent2: #fb923c; /* orange */
+  --glow: rgba(244,63,94,0.45);
+  border-radius: 12px 12px 18px 12px;
+}
+.software-list li:nth-child(5) .software-chip { /* CapCut */
+  --accent: #10b981;  /* emerald */
+  --accent2: #06b6d4; /* cyan */
+  --glow: rgba(16,185,129,0.45);
+  border-radius: 12px 12px 12px 18px;
+}
+.software-list li:nth-child(6) .software-chip { /* After Effects */
+  --accent: #8b5cf6;  /* violet */
+  --accent2: #a78bfa; /* light violet */
+  --glow: rgba(139,92,246,0.45);
+  border-radius: 20px;
+}
+
+/* Stagger pulse for uniqueness */
+.software-list li:nth-child(1) { animation-delay: 0s; }
+.software-list li:nth-child(2) { animation-delay: 0.1s; }
+.software-list li:nth-child(3) { animation-delay: 0.2s; }
+.software-list li:nth-child(4) { animation-delay: 0.3s; }
+.software-list li:nth-child(5) { animation-delay: 0.4s; }
+.software-list li:nth-child(6) { animation-delay: 0.5s; }
+
+/* Twinkling stars background */
+.skills-section::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(1.5px 1.5px at 20% 20%, rgba(255,255,255,0.9), transparent 60%),
+    radial-gradient(1.5px 1.5px at 40% 60%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 60% 35%, rgba(0,212,255,0.85), transparent 60%),
+    radial-gradient(1.5px 1.5px at 80% 55%, rgba(255,255,255,0.85), transparent 60%),
+    radial-gradient(1.5px 1.5px at 90% 85%, rgba(102,126,234,0.9), transparent 60%);
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.skills-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 30px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.skill-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #f8fafc;
+}
+
+.skill-percentage {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00d4ff;
+  margin-bottom: 15px;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #00d4ff, #5b86e5);
+  border-radius: 4px;
+  transition: width 2s ease;
+}
+
+.skill-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tool-tag {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00d4ff;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+/* Two-column layout for Skills page */
+.skills-columns {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.skills-columns::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-0.5px);
+}
+
+.skills-column {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(16px);
+}
+
+.skills-column .section-title {
+  margin: 0 0 16px;
+  text-align: left;
+}
+
+/* Lists styling */
+.skills-list,
+.software-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.skills-list li,
+.software-list li {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+}
+
+/* Software list as square buttons */
+.software-list {
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.software-list li {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  animation: softPulse 3s ease-in-out infinite;
+}
+
+/* Animated button replacing logo */
+.software-chip {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  /* Theme via CSS variables with per-item overrides */
+  --accent: #0ea5e9;           /* default cyan */
+  --accent2: #6366f1;          /* default indigo */
+  --glow: rgba(14,165,233,0.35);
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent) 20%, transparent),
+    color-mix(in oklab, var(--accent2) 18%, transparent)
+  );
+  color: #e6f6ff;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  border: 1px solid var(--glow);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.software-chip::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  width: 200%;
+  height: 300%;
+  background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+  transform: rotate(25deg);
+  opacity: 0;
+}
+
+.software-list li:hover .software-chip {
+  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent) 32%, transparent),
+    color-mix(in oklab, var(--accent2) 28%, transparent)
+  );
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 16px 28px rgba(0,0,0,0.28);
+}
+
+.software-list li:hover .software-chip::after {
+  animation: sheen 0.9s ease forwards;
+}
+
+/* Logo images inside software items */
+.software-logo {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+}
+
+.software-list li:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+  border-color: #00d4ff;
+}
+
+.software-link:focus-visible,
+.software-chip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* Subtle pulse animation for software buttons */
+@keyframes softPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+  100% {
+    transform: translateY(-2px) scale(1.015);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  }
+}
+
+@keyframes sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%) rotate(25deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(60%) rotate(25deg);
+  }
+}
+
+.software-list li:focus-visible {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+  .skills-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-columns::before {
+    display: none;
+  }
+}

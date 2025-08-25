@@ -1,0 +1,177 @@
+.hero-section { 
+  background: linear-gradient(135deg, rgba(102,126,234,0.9) 0%, rgba(118,75,162,0.9) 100%); 
+  text-align: center; 
+  position: relative; 
+  overflow: hidden; 
+  padding-top: 60px; 
+}
+
+/* Spark animation for Home */
+.hero-section::before {
+  content: "";
+  position: absolute; 
+  inset: 0; 
+  pointer-events: none; 
+  z-index: 0;
+  background:
+    radial-gradient(3px 3px at 10% 20%, rgba(255,255,255,0.95), transparent 60%),
+    radial-gradient(3px 3px at 25% 75%, rgba(0,212,255,0.95), transparent 60%),
+    radial-gradient(3px 3px at 60% 30%, rgba(255,255,255,0.9), transparent 60%),
+    radial-gradient(3px 3px at 80% 60%, rgba(102,126,234,0.95), transparent 60%),
+    radial-gradient(3px 3px at 50% 85%, rgba(255,255,255,0.9), transparent 60%),
+    radial-gradient(3px 3px at 20% 90%, rgba(54,209,220,0.95), transparent 60%),
+    radial-gradient(3px 3px at 45% 15%, rgba(255,255,255,0.95), transparent 60%),
+    radial-gradient(3px 3px at 70% 80%, rgba(0,212,255,0.95), transparent 60%);
+  animation: heroSparkMove 8s linear infinite, heroSparkFlicker 2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes heroSparkMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-80px); }
+}
+
+@keyframes heroSparkFlicker {
+  0%,100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Bubble animation layer for Home */
+.hero-section::after {
+  content: "";
+  position: absolute; inset: -10% 0 0 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(28px 28px at 12% 112%, rgba(255,255,255,0.22) 30%, rgba(255,255,255,0) 60%),
+    radial-gradient(20px 20px at 38% 120%, rgba(255,255,255,0.18) 30%, rgba(255,255,255,0) 60%),
+    radial-gradient(24px 24px at 62% 115%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0) 60%),
+    radial-gradient(16px 16px at 78% 125%, rgba(255,255,255,0.16) 30%, rgba(255,255,255,0) 60%),
+    radial-gradient(14px 14px at 24% 130%, rgba(255,255,255,0.14) 30%, rgba(255,255,255,0) 60%);
+  animation: heroBubblesRise 14s linear infinite, heroBubbleDrift 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heroBubblesRise {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-25%); opacity: 1; }
+}
+
+@keyframes heroBubbleDrift {
+  0%,100% { transform: translateX(0); }
+  50% { transform: translateX(3%); }
+}
+
+.hero-content { 
+  z-index: 10; 
+  position: relative; 
+}
+
+.hero-title { 
+  font-size: clamp(3rem, 8vw, 7rem); 
+  font-weight: 800; 
+  background: linear-gradient(45deg, #75ff6b, #07e934, #6bcf7f, #4d9de0, #0be55b); 
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  margin-bottom: 20px; 
+  transform: translateY(100px); 
+  opacity: 0; 
+}
+
+.hero-subtitle { 
+  font-size: clamp(1.2rem, 3vw, 2rem); 
+  font-weight: 300; 
+  margin-bottom: 40px; 
+  opacity: 0; 
+  transform: translateY(50px); 
+  letter-spacing: 2px; 
+  color: #e2e8f0; 
+}
+
+.hero-description { 
+  font-size: 1.2rem; 
+  max-width: 600px; 
+  margin: 0 auto 50px; 
+  opacity: 0; 
+  transform: translateY(30px); 
+  line-height: 1.6; 
+  font-weight: 300; 
+  color: #cbd5e1; 
+}
+
+.cta-button { 
+  background: linear-gradient(45deg, #667eea, #764ba2); 
+  border: none; 
+  color: white; 
+  padding: 18px 50px; 
+  font-size: 1.1rem; 
+  font-weight: 600; 
+  cursor: pointer; 
+  border-radius: 50px; 
+  position: relative; 
+  overflow: hidden; 
+  transition: all 0.3s ease; 
+  opacity: 1; 
+  transform: none; 
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3); 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
+
+.cta-button:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 25px 50px rgba(102,126,234,0.5); 
+}
+
+.scroll-indicator { 
+  position: absolute; 
+  bottom: 30px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  opacity: 0; 
+  animation: float 2s ease-in-out infinite; 
+}
+.scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); opacity: 0; animation: float 2s ease-in-out infinite; }
+
+/* Social links */
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+/* When used inside hero content, keep them inline and centered above CTA */
+.hero-section .hero-content .social-links {
+  position: static;
+  justify-content: center;
+  margin: 14px 0 20px;
+}
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #00d4ff;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.25);
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0, 212, 255, 0.25);
+}
+
+.social-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.35);
+}
+
+@media (max-width: 640px) {
+  .social-btn { width: 40px; height: 40px; }
+}
