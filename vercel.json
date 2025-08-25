@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "video_portifolio/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "installCommand": "npm --prefix video_portifolio install --include=dev",
+  "buildCommand": "npm --prefix video_portifolio run build",
+  "outputDirectory": "video_portifolio/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
